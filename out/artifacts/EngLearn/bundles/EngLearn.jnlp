@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="EngLearn.jnlp">
+  <information>
+    <title>EngLearn</title>
+    <vendor>Unknown</vendor>
+    <description>EngLearn</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="EngLearn.jar" size="53081" download="eager" />
+    <jar href="FastInfoset-1.2.16.jar" size="317195" download="eager" />
+    <jar href="istack-commons-runtime-3.0.8.jar" size="27156" download="eager" />
+    <jar href="jakarta.activation-api-1.2.1.jar" size="44399" download="eager" />
+    <jar href="jakarta.xml.bind-api-2.3.2.jar" size="115498" download="eager" />
+    <jar href="jaxb-runtime-2.3.2.jar" size="1013367" download="eager" />
+    <jar href="json-simple-1.1.1.jar" size="23931" download="eager" />
+    <jar href="stax-ex-1.8.1.jar" size="38099" download="eager" />
+    <jar href="txw2-2.3.2.jar" size="72080" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="run.AppRun"  name="EngLearn" />
+  <update check="background"/>
+</jnlp>
