@@ -5,3 +5,4 @@ Dictionary of foreign words for repetition every day.
  <br/>-JSON format
  <br/>-XML format 
  <br/>-internal object serialization.
+- native bundle executive: 
