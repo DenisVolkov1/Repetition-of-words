@@ -90,11 +90,12 @@ public class NewWords {
         if (settings.jsonToggleSelected()) {
             File saveFile = settings.getFilePathJSON();
             if (saveFile == null) {
-                if (settings.saveFileJSONFileChooser() != null) {
+                File newFile = settings.saveFileJSONFileChooser();
+                if (newFile != null) {
                     AllWords.getWords().addAll(newWordsList);
-                    settings.saveDataToFileJSON(saveFile);
+                    settings.saveDataToFileJSON(newFile);
 
-                    String name = saveFile.getName();
+                    String name = newFile.getName();
                     settings.getNameFileJSON().setText(name);
                     settings.setNameBase("JSON");
                     //устанавливаем активность кнопок
