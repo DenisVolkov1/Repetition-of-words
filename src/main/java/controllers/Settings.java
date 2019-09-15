@@ -63,8 +63,28 @@ public class Settings {
     private RadioButton radioBtnSerializ;
     @FXML
     private void initialize() {
-        preInitialize();
-        Utillity.printAllPreferences();
+       try {
+           preInitialize();
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+       Utillity.printAllPreferences();
+    }
+    private void preInitialize() {
+        // set name label
+        File xmlFile = getFilePathXML();
+        File jsonFile= getFilePathJSON();
+
+        if (getFilePathXML() == null) {
+            nameFileXML.setText("empty...");
+        } else nameFileXML.setText(xmlFile.getName());
+        if (getFilePathJSON() == null) {
+            nameFileJSON.setText("empty...");
+        } else nameFileJSON.setText(jsonFile.getName());
+            wordsDay.isButtonsEnabled(false);
+            setJSONInterfaceActive(false);
+
+
         //set save new words day
         String savedNewWords = prefs.get("NewWordsForDays", null);
         if (savedNewWords == null) {
@@ -136,19 +156,6 @@ public class Settings {
                 saveListDayWords();
             } else deleteLastWordsFileAndSettings();
         });
-    }
-    private void preInitialize() {
-        File xmlFile = getFilePathXML();
-        File jsonFile= getFilePathJSON();
-
-        if (getFilePathXML() == null) {
-            nameFileXML.setText("empty...");
-        } else nameFileXML.setText(xmlFile.getName());
-        if (getFilePathJSON() == null) {
-            nameFileJSON.setText("empty...");
-        } else nameFileJSON.setText(jsonFile.getName());
-            wordsDay.isButtonsEnabled(false);
-            setJSONInterfaceActive(false);
     }
     @FXML
     private void clickSpinnerNewWordsHandle() {
@@ -403,6 +410,7 @@ public class Settings {
             if (!file.getPath().endsWith(".xml")) {
                 file = new File(file.getPath() + ".xml");
             }
+            saveFilePathXML(file);
             saveDataToFileXML(file);
             return file;
         }
@@ -419,8 +427,7 @@ public class Settings {
             wrapper.setWords(AllWords.getWords());
             // Маршаллируем и сохраняем XML в файл.
             m.marshal(wrapper, file);
-            // Сохраняем путь к файлу в реестре.
-            saveFilePathXML(file);
+
         } catch (JAXBException e) {
             e.printStackTrace();
             alertErrorLoadSaveDate(file);
@@ -487,6 +494,7 @@ public class Settings {
             if (!file.getPath().endsWith(".json")) {
                 file = new File(file.getPath() + ".json");
             }
+            saveFilePathJSON(file);
             saveDataToFileJSON(file);
             return file;
         }
@@ -497,8 +505,8 @@ public class Settings {
         try {
             byte[] bytes = mainjson.toJSONString().getBytes();
             Path path = Paths.get(file.getPath());
-
             Files.write(path, bytes);
+
         } catch (IOException e) {
             e.printStackTrace();
             alertErrorLoadSaveDate(file);

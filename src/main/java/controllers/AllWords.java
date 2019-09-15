@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -54,6 +55,7 @@ public class AllWords {
         AnchorPane anchorPane = (AnchorPane) loader.load();
         // Создаём диалоговое окно Stage.
         Stage dialogStage = new Stage();
+        dialogStage.getIcons().add(new Image("icon.png"));
 
         Word word = selectedWord();
         if (word != null) {

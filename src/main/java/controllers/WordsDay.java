@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -129,7 +130,7 @@ public class WordsDay {
             e.printStackTrace();
         }
         Stage dialogStage = new Stage();
-
+        dialogStage.getIcons().add(new Image("icon.png"));
         dialogStage.setTitle("New Words");
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.initOwner(AppRun.getMainStage());

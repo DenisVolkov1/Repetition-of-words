@@ -67,11 +67,12 @@ public class NewWords {
         if (settings.xmlToggleSelected()) {
             File saveFile = settings.getFilePathXML();
             if (saveFile == null) {
-                if (settings.saveFileXMLFileChooser() != null) {
+                File newFile = settings.saveFileXMLFileChooser();
+                if (newFile != null) {
                     AllWords.getWords().addAll(newWordsList);
-                    settings.saveDataToFileXML(saveFile);
+                    settings.saveDataToFileXML(newFile);
 
-                    String name = saveFile.getName();
+                    String name = newFile.getName();
                     settings.getNameFileXML().setText(name);
                     settings.setNameBase("XML");
                     //устанавливаем активность кнопок
@@ -86,8 +87,7 @@ public class NewWords {
                 settings.saveDataToFileXML(saveFile);
                 stageNewWords.close();
             }
-        }
-        if (settings.jsonToggleSelected()) {
+        } else if (settings.jsonToggleSelected()) {
             File saveFile = settings.getFilePathJSON();
             if (saveFile == null) {
                 File newFile = settings.saveFileJSONFileChooser();
@@ -98,7 +98,6 @@ public class NewWords {
                     String name = newFile.getName();
                     settings.getNameFileJSON().setText(name);
                     settings.setNameBase("JSON");
-                    //устанавливаем активность кнопок
                     wordsDay.isButtonsEnabled(true);
                     wordsDay.refresh(settings);
 
@@ -110,19 +109,20 @@ public class NewWords {
                 settings.saveDataToFileJSON(saveFile);
                 stageNewWords.close();
             }
-        }
-        if (settings.serializableToggleSelected()) {
-            AllWords.getWords().addAll(newWordsList);
-            settings.saveFileSerializable();
-            // устанавливаем имена
-            settings.setNameBase("Ser");
-            //устанавливаем активность кнопок
-            wordsDay.isButtonsEnabled(true);
+        } else if (settings.serializableToggleSelected()) {
             boolean isExistFileSerializ = new File("dictonary.base").exists();
-            if (!isExistFileSerializ) wordsDay.refresh(settings);
+            if (isExistFileSerializ) {
+                AllWords.getWords().addAll(newWordsList);
+                settings.saveFileSerializable();
+            } else {
+                AllWords.getWords().addAll(newWordsList);
+                settings.saveFileSerializable();
+                settings.setNameBase("Ser");
+                wordsDay.isButtonsEnabled(true);
+                wordsDay.refresh(settings);
+            }
             stageNewWords.close();
         }
-
         newWordsList.clear();
         allWords.setCurrentCountWords();
     }
