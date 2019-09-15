@@ -1,0 +1,13 @@
+model\WordSerializable.class
+controllers\AllWords.class
+utillity\DateUtil.class
+utillity\LocalDateAdapter.class
+controllers\EditDialog.class
+model\WordListWrapper.class
+utillity\Utillity.class
+utillity\FieldTextUtil.class
+controllers\WordsDay.class
+run\AppRun.class
+controllers\Settings.class
+model\Word.class
+controllers\NewWords.class
