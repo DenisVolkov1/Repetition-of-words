@@ -27,7 +27,7 @@ public class AppRun extends Application {
     private static FXMLLoader loaderTabAllWords = new FXMLLoader(AppRun.class.getResource("/view/AllWords.fxml"));
     private static FXMLLoader loaderTabWordsDay = new FXMLLoader(AppRun.class.getResource("/view/WordsDay.fxml"));
     private static FXMLLoader loaderTabSettings = new FXMLLoader(AppRun.class.getResource("/view/Settings.fxml"));
-    //
+
     @Override
     public void start(Stage stage) throws Exception {
        stage.getIcons().add(new Image("icon.png"));
