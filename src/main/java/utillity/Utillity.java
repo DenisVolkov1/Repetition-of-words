@@ -8,6 +8,8 @@ import model.WordSerializable;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +60,28 @@ public class Utillity {
         result.put("words", words);
         return result;
     }
+    public static String fromWindows1251ToUTF8(String strWin1251) {
+        byte ptext[] = new byte[0];
+        String result = null;
+        try {
+            ptext = strWin1251.getBytes("windows-1251");
+            result = new String(ptext, StandardCharsets.UTF_8);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public static String fromUTF8ToWindows1251(String strUTF8) {
+        byte ptext[] = new byte[0];
+        String result = null;
+        try {
+            ptext = strUTF8.getBytes(StandardCharsets.UTF_8);
+            result = new String(ptext, "windows-1251");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
     public static void printAllPreferences() {
         Preferences prefs = Preferences.userNodeForPackage(Settings.class);
         System.out.println("Preferences---------------");
@@ -71,6 +95,8 @@ public class Utillity {
         System.out.println("key filePathXML ="+prefs.get("filePathXML", null));
         System.out.println("key filePathJSON ="+prefs.get("filePathJSON", null));
         System.out.println("fileSerializable exists ="+ new File("dictonary.base").exists());
+        System.out.println("---------------------------");
+        System.out.println("file encoding ="+System.getProperty("file.encoding"));
         System.out.println("---------------------------");
     }
 

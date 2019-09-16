@@ -17,6 +17,8 @@ import utillity.Utillity;
 
 import javax.xml.bind.*;
 import java.io.*;
+import java.lang.reflect.Field;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -63,7 +65,17 @@ public class Settings {
     private RadioButton radioBtnSerializ;
     @FXML
     private void initialize() {
-       try {
+        System.setProperty("file.encoding","UTF-8");
+        Field charset = null;
+        try {
+            charset = Charset.class.getDeclaredField("defaultCharset");
+            charset.setAccessible(true);
+            charset.set(null,null);
+        } catch (IllegalAccessException | NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        try {
            preInitialize();
        } catch (Exception e) {
            e.printStackTrace();
