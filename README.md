@@ -5,4 +5,4 @@ Dictionary of foreign words for repetition every day.
  <br/>-JSON format
  <br/>-XML format 
  <br/>-internal object serialization.
-- native bundle executive: Repetition-of-words/out/artifacts/EngLearn/bundles/EngLearn/EngLearn.exe
+- native bundle executive: Repetition-of-words/target/jfx/native/bundles/EngLearn-1.0-SNAPSHOT/EngLearn-1.0-SNAPSHOT.exe
