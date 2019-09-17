@@ -12,6 +12,8 @@ import javafx.scene.layout.AnchorPane;
 
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polyline;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Word;
@@ -62,9 +64,16 @@ public class WordsDay {
     private void initialize() {
         progressBar.setStyle("-fx-accent: #99ff33;");
         translation.setVisible(false);
-        viewTranslationButton.setOnMousePressed(n -> translation.setVisible(true));
-        viewTranslationButton.setOnMouseReleased(n -> translation.setVisible(false));
-
+        viewTranslationButton.setOnMousePressed(n -> {
+            if (translation.getText().length() > 34) {
+                translation.setFont(Font.font("System", FontWeight.BOLD, 13));
+            }
+            translation.setVisible(true);
+        });
+        viewTranslationButton.setOnMouseReleased(n -> {
+            translation.setFont(Font.font("System", FontWeight.BOLD, 15));
+            translation.setVisible(false);
+        });
     }
     public void isButtonsEnabled(Boolean b) {
         if (b) {
@@ -100,7 +109,6 @@ public class WordsDay {
             setProgressInProgressBar();
             viewWordForIndex(countLastWords);
             lastWords.setText((countLastWords).toString());
-            //
             prefs.putInt("CountLastWords", countLastWords);
         }
     }
@@ -216,6 +224,4 @@ public class WordsDay {
     public Label getLastWords() {
         return lastWords;
     }
-
-
 }

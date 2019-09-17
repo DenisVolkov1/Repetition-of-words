@@ -12,6 +12,8 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.awt.event.FocusEvent;
@@ -46,6 +48,9 @@ public class AppRun extends Application {
             WordsDay wordsDay = loaderTabWordsDay.getController();
 
             if (event.getCode() == KeyCode.SPACE) {
+                if ( wordsDay.getTranslation().getText().length() > 34) {
+                    wordsDay.getTranslation().setFont(Font.font("System", FontWeight.BOLD, 13));
+                }
                 wordsDay.getTranslation().setVisible(true);
             }
             if (event.getCode() == KeyCode.RIGHT && tabWordsDayIsFocuse) {
@@ -60,6 +65,9 @@ public class AppRun extends Application {
 
             if (event.getCode() == KeyCode.SPACE) {
                 WordsDay wordsDay = loaderTabWordsDay.getController();
+                if ( wordsDay.getTranslation().getText().length() > 34) {
+                    wordsDay.getTranslation().setFont(Font.font("System", FontWeight.BOLD, 15));
+                }
                 wordsDay.getTranslation().setVisible(false);
             }
             event.consume();

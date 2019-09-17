@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="600.0" stylesheets="@theme.css" xmlns="http://javafx.com/javafx/8.0.192" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.WordsDay">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="600.0" stylesheets="@theme.css" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controllers.WordsDay">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="450.0" layoutY="4.0" opacity="0.07" stroke="BLACK" strokeType="INSIDE" width="134.0" />
       <Button fx:id="newWordsButton" blendMode="DARKEN" contentDisplay="CENTER" layoutX="508.0" layoutY="324.0" mnemonicParsing="false" onAction="#newWordsHandle" prefHeight="33.0" prefWidth="92.0" stylesheets="@theme.css" text="New words" textOverrun="WORD_ELLIPSIS" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
@@ -58,7 +58,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="translation" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="134.0" layoutY="114.0" opacity="0.66" prefHeight="20.0" prefWidth="302.0" textFill="#e10000">
+            <Label fx:id="translation" alignment="CENTER" contentDisplay="CENTER" layoutX="124.0" layoutY="114.0" opacity="0.66" prefHeight="20.0" prefWidth="322.0" textFill="#e10000">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
