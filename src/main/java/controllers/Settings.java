@@ -65,6 +65,15 @@ public class Settings {
     private RadioButton radioBtnSerializ;
     @FXML
     private void initialize() {
+        setSystemPropertyEncoding();
+        try {
+           preInitialize();
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+       Utillity.printAllPreferences();
+    }
+    private void setSystemPropertyEncoding() {
         System.setProperty("file.encoding","UTF-8");
         Field charset = null;
         try {
@@ -74,13 +83,6 @@ public class Settings {
         } catch (IllegalAccessException | NoSuchFieldException e) {
             e.printStackTrace();
         }
-
-        try {
-           preInitialize();
-       } catch (Exception e) {
-           e.printStackTrace();
-       }
-       Utillity.printAllPreferences();
     }
     private void preInitialize() {
         // set name label
@@ -95,8 +97,6 @@ public class Settings {
         } else nameFileJSON.setText(jsonFile.getName());
             wordsDay.isButtonsEnabled(false);
             setJSONInterfaceActive(false);
-
-
         //set save new words day
         String savedNewWords = prefs.get("NewWordsForDays", null);
         if (savedNewWords == null) {
@@ -182,12 +182,13 @@ public class Settings {
         prompt.setVisible(true);
     }
     public boolean saveWordsForDay() {
-        boolean notZeroLength = fieldCountDayWords.getText().length() > 0;
+        String countDayWordsStr = fieldCountDayWords.getText();
+        boolean notZeroLength = countDayWordsStr.length() > 0;
         if (notZeroLength) {
-            boolean validCount = Integer.valueOf(fieldCountDayWords.getText()) >= 1;
+            boolean validCount = Integer.valueOf(countDayWordsStr) >= 1;
             if (validCount) {
                 prompt.setVisible(false);
-                prefs.put("WordsForDay", countDayWords().toString());
+                prefs.put("WordsForDay", countDayWordsStr);
             }
             return true;
         } else {
