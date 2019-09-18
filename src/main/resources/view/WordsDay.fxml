@@ -12,10 +12,10 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="600.0" stylesheets="@theme.css" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controllers.WordsDay">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="600.0" stylesheets="@../css/theme.css" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controllers.WordsDay">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="450.0" layoutY="4.0" opacity="0.07" stroke="BLACK" strokeType="INSIDE" width="134.0" />
-      <Button fx:id="newWordsButton" blendMode="DARKEN" contentDisplay="CENTER" layoutX="508.0" layoutY="324.0" mnemonicParsing="false" onAction="#newWordsHandle" prefHeight="33.0" prefWidth="92.0" stylesheets="@theme.css" text="New words" textOverrun="WORD_ELLIPSIS" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+      <Button fx:id="newWordsButton" blendMode="DARKEN" contentDisplay="CENTER" layoutX="508.0" layoutY="324.0" mnemonicParsing="false" onAction="#newWordsHandle" prefHeight="33.0" prefWidth="92.0" stylesheets="@../css/theme.css" text="New words" textOverrun="WORD_ELLIPSIS" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
          <font>
             <Font size="14.0" />
          </font>

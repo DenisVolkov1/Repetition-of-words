@@ -65,6 +65,9 @@
                 <configuration>
                     <vendor>YourCompany</vendor>
                     <mainClass>${mainclass}</mainClass>
+                    <bundleArguments>
+                        <icon>${project.basedir}/src/main/resources/img/exeicon.ico</icon>
+                    </bundleArguments>
                 </configuration>
             </plugin>
 

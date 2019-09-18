@@ -28,7 +28,7 @@ import java.util.function.UnaryOperator;
 import java.util.prefs.Preferences;
 
 public class Settings {
-    private final String css = this.getClass().getResource("/view/theme.css").toExternalForm();
+    private final String css = this.getClass().getResource("/css/theme.css").toExternalForm();
     private static SpinnerValueFactory.IntegerSpinnerValueFactory spinnerValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(2, 10);
     private static WordsDay wordsDay;
     private static AllWords allWords;

@@ -36,7 +36,7 @@ public class NewWords {
         settings = AppRun.getControllerTabSettings();
         prefs = settings.getPrefs();
     }
-    private final String css = this.getClass().getResource("/view/theme.css").toExternalForm();
+    private final String css = this.getClass().getResource("/css/theme.css").toExternalForm();
     private static final Border ERR_BORDER = new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID, new CornerRadii(3), new BorderWidths(0,2,0,2),new Insets(0,0,0,0)));
     private Stage stageNewWords;
 

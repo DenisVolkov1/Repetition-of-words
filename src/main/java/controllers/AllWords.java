@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 public class AllWords {
-    private final String css = this.getClass().getResource("/view/theme.css").toExternalForm();
+    private final String css = this.getClass().getResource("/css/theme.css").toExternalForm();
     private static ObservableList<Word> words = FXCollections.observableArrayList();
 
     @FXML
@@ -55,7 +55,7 @@ public class AllWords {
         AnchorPane anchorPane = (AnchorPane) loader.load();
         // Создаём диалоговое окно Stage.
         Stage dialogStage = new Stage();
-        dialogStage.getIcons().add(new Image("icon.png"));
+        dialogStage.getIcons().add(new Image("img/icon.png"));
 
         Word word = selectedWord();
         if (word != null) {

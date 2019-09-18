@@ -2,12 +2,9 @@ package controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.scene.shape.Line;
@@ -20,15 +17,13 @@ import model.Word;
 import run.AppRun;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
 
 public class WordsDay {
-    private final String css = this.getClass().getResource("/view/theme.css").toExternalForm();
+    private final String css = this.getClass().getResource("/css/theme.css").toExternalForm();
     private Preferences prefs = Preferences.userNodeForPackage(Settings.class);
 
     private List<Word> wordsDayList = new ArrayList<>();
@@ -138,7 +133,7 @@ public class WordsDay {
             e.printStackTrace();
         }
         Stage dialogStage = new Stage();
-        dialogStage.getIcons().add(new Image("icon.png"));
+        dialogStage.getIcons().add(new Image("img/icon.png"));
         dialogStage.setTitle("New Words");
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.initOwner(AppRun.getMainStage());

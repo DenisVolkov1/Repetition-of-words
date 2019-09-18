@@ -4,7 +4,6 @@ import controllers.AllWords;
 import controllers.Settings;
 import controllers.WordsDay;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
@@ -16,7 +15,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.awt.event.FocusEvent;
 import java.io.IOException;
 
 public class AppRun extends Application {
@@ -32,7 +30,7 @@ public class AppRun extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.getIcons().add(new Image("icon.png"));
+        stage.getIcons().add(new Image("img/icon.png"));
         mainStage = stage;
         //main pane
         TabPane tabPaneMain = (TabPane) loaderMainApp.load();
