@@ -32,7 +32,7 @@ public class AppRun extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-       stage.getIcons().add(new Image("icon.png"));
+        stage.getIcons().add(new Image("icon.png"));
         mainStage = stage;
         //main pane
         TabPane tabPaneMain = (TabPane) loaderMainApp.load();
@@ -42,7 +42,6 @@ public class AppRun extends Application {
         // Отображаем сцену, содержащую корневой макет.
         Scene mainScene = new Scene(tabPaneMain);
         // add listeners for space , right , left key handle
-
         tabPaneMain.getTabs().get(1).getContent().addEventFilter(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
             boolean tabWordsDayIsFocuse = tabPaneMain.getTabs().get(1).isSelected();
             WordsDay wordsDay = loaderTabWordsDay.getController();

@@ -2,7 +2,7 @@
 .button {
        -fx-background-color:
           #eaeae1,
-           radial-gradient(center 50% 0%, radius 100%,   #eeffe6,  #ccffb3);
+           radial-gradient(center 50% 0%, radius 100%,   #d9ff66,   #ace600);
        -fx-background-radius: 5,5,5,5;
        -fx-border-radius: 5,5,5,5;
        -fx-text-fill:#404040;

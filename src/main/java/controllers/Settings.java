@@ -187,8 +187,9 @@ public class Settings {
         if (notZeroLength) {
             boolean validCount = Integer.valueOf(countDayWordsStr) >= 1;
             if (validCount) {
+                fieldCountDayWords.setText(new Integer(countDayWordsStr).toString());
                 prompt.setVisible(false);
-                prefs.put("WordsForDay", countDayWordsStr);
+                prefs.put("WordsForDay", new Integer(countDayWordsStr).toString());
             }
             return true;
         } else {
@@ -466,10 +467,10 @@ public class Settings {
             allWords.setCurrentCountWords();
         }
     }
-    public void loadDataFromFileJSON(File file) {
+    public void loadDataFromFileJSON(File fileJson) {
         FileReader reader = null;
         try {
-            reader = new FileReader(file.getPath());
+            reader = new FileReader(fileJson.getPath());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -478,20 +479,18 @@ public class Settings {
         JSONObject jsonObject = null;
         try {
             jsonObject = (JSONObject) jsonParser.parse(reader);
+            ObservableList<Word> result = Utillity.jsonObjInObservableList(jsonObject);
+            System.out.println(result);
+
+            AllWords.getWords().clear();
+            AllWords.getWords().addAll(result);
+            saveFilePathJSON(fileJson);
+
         } catch (IOException e) {
-            e.printStackTrace();
-            alertErrorLoadSaveDate(file);
+            alertErrorLoadSaveDate(fileJson);
         } catch (ParseException e) {
-            alertErrorParseJSON(file);
-            e.printStackTrace();
+            alertErrorParseJSON(fileJson);
         }
-
-        ObservableList<Word> result = Utillity.jsonObjInObservableList(jsonObject);
-        System.out.println(result);
-
-        AllWords.getWords().clear();
-        AllWords.getWords().addAll(result);
-        saveFilePathJSON(file);
     }
     public File saveFileJSONFileChooser() {
         FileChooser fileChooser = new FileChooser();

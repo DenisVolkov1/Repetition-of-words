@@ -25,7 +25,7 @@
       </Button>
       <AnchorPane layoutX="18.0" layoutY="14.0" prefHeight="200.0" prefWidth="563.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="237.0" layoutY="1.0" stroke="WHITE" strokeType="INSIDE" width="570.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1dfdf" height="237.0" layoutY="1.0" stroke="WHITE" strokeType="INSIDE" width="570.0" />
             <Line fx:id="line" endX="435.0" fill="RED" layoutX="134.0" layoutY="195.0" opacity="0.45" startX="-134.0" AnchorPane.leftAnchor="-0.5" AnchorPane.rightAnchor="0.5">
                <stroke>
                   <LinearGradient endX="1.0" endY="1.0">
@@ -36,7 +36,17 @@
                   </LinearGradient>
                </stroke>
             </Line>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f0fff0" height="76.0" layoutX="6.0" layoutY="63.0" stroke="#8a8686" strokeType="INSIDE" width="558.0" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="63.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="76.0" layoutX="6.0" layoutY="63.0" stroke="#8a8686" strokeType="INSIDE" width="558.0" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="63.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="0.5047619047619047" startY="0.5142857142857142">
+                     <stops>
+                        <Stop color="WHITE" />
+                        <Stop color="#d0ffa1" offset="0.007662835249042145" />
+                        <Stop color="#f2ffd4" offset="0.5172413793103446" />
+                        <Stop color="#e7ffbf" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
             <Button fx:id="nextButton" layoutX="463.0" layoutY="76.0" maxWidth="86.0" mnemonicParsing="false" onAction="#nextHandle" prefHeight="50.0" prefWidth="86.0" text="Next word" AnchorPane.leftAnchor="463.0" AnchorPane.topAnchor="76.0">
                <font>
                   <Font size="14.0" />
@@ -74,7 +84,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Polyline fx:id="polyline" fill="CHARTREUSE" layoutX="289.0" layoutY="40.0" opacity="0.14" points="33.0, -13.0, 59.0, 24.0, -66.0, 24.0, -37.0, -13.0" strokeType="INSIDE">
+            <Polyline fx:id="polyline" layoutX="289.0" layoutY="40.0" opacity="0.14" points="33.0, -13.0, 59.0, 24.0, -66.0, 24.0, -37.0, -13.0" strokeType="INSIDE">
                <stroke>
                   <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.2571428571428571">
                      <stops>
@@ -82,13 +92,23 @@
                         <Stop color="WHITE" offset="1.0" />
                      </stops>
                   </LinearGradient>
-               </stroke></Polyline>
+               </stroke>
+               <fill>
+                  <LinearGradient endX="1.0" endY="0.5047619047619047" startY="0.5142857142857142">
+                     <stops>
+                        <Stop color="WHITE" />
+                        <Stop color="#d0ffa1" offset="0.007662835249042145" />
+                        <Stop color="#f2ffd4" offset="0.5172413793103446" />
+                        <Stop color="#e7ffbf" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Polyline>
             <Label fx:id="lastWords" alignment="CENTER" contentDisplay="CENTER" layoutX="257.0" layoutY="33.0" opacity="0.77" prefHeight="25.0" prefWidth="56.0" textAlignment="CENTER" textFill="#654f4f">
                <font>
                   <Font name="Times New Roman Bold" size="18.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="DODGERBLUE" height="25.0" layoutX="180.0" layoutY="139.0" opacity="0.1" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="219.0" />
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="DODGERBLUE" height="25.0" layoutX="180.0" layoutY="139.0" opacity="0.15" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="219.0" />
             <ProgressBar fx:id="progressBar" cache="true" layoutX="189.0" layoutY="147.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.7" prefHeight="10.0" prefWidth="201.0" progress="0.0" />
             <Line endX="100.0" layoutX="284.0" layoutY="114.0" opacity="0.24" startX="-100.0" strokeWidth="0.5">
                <stroke>
