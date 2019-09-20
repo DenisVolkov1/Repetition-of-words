@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="600.0" stylesheets="@../css/theme.css" xmlns="http://javafx.com/javafx/8.0.192" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Settings">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="600.0" stylesheets="@../css/theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Settings">
    <children>
       <Line endX="-188.5" endY="-85.33332824707031" layoutX="212.0" layoutY="290.0" opacity="0.27" startX="-188.5" startY="-107.0" />
       <VBox layoutX="13.0" layoutY="14.0" prefHeight="84.0" prefWidth="525.0" spacing="5.0">
@@ -104,7 +104,7 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Line endX="-111.16667175292969" endY="-120.83332824707031" layoutX="144.0" layoutY="264.0" opacity="0.28" startX="-120.5" startY="-120.83332824707031" />
-      <Line endX="451.0" fill="RED" layoutX="149.0" layoutY="101.0" opacity="0.45" startX="-149.0">
+      <Line endX="451.0" fill="RED" layoutX="149.0" layoutY="101.0" opacity="0.45" startX="-149.0" AnchorPane.leftAnchor="-0.5" AnchorPane.rightAnchor="-0.5">
          <stroke>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -119,7 +119,7 @@
             <Font name="System Italic" size="13.0" />
          </font>
       </Label>
-      <Button layoutX="486.0" layoutY="324.0" mnemonicParsing="false" onAction="#clearAllSave" prefHeight="33.0" prefWidth="100.0" text="Reset settings">
+      <Button layoutX="486.0" layoutY="324.0" mnemonicParsing="false" onAction="#clearAllSave" prefHeight="33.0" prefWidth="100.0" text="Reset settings" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="10.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
