@@ -34,9 +34,4 @@ public class FieldTextUtil {
         return false;
     }
 
-    public static void setBorderErr() {
-
-    }
-
-
 }

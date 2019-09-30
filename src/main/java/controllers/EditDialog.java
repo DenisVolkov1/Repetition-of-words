@@ -48,10 +48,8 @@ public class EditDialog {
             boolean enterError = false;
 
             if (FieldTextUtil.isEmptyFields(textFieldWord)) {
-                if(!enterError) {
-                    alertNotFilled();
-                    enterError = true;
-                }
+                alertNotFilled();
+                enterError = true;
                 textFieldWord.setBorder(ERR_BORDER);
             }
             if (FieldTextUtil.isEmptyFields(textFieldTranslate)) {
@@ -74,15 +72,15 @@ public class EditDialog {
             selectedWord.setWord(textFieldWord.getText());
             selectedWord.setTranslate(textFieldTranslate.getText());
             //save bases
-            Settings settings = AppRun.getControllerTabSettings();
-            AllWords allWords = AppRun.getControllerTabAllWords();
-            if (settings.xmlToggleSelected()) settings.saveDataToFileXML(settings.getFilePathXML());
-            if (settings.jsonToggleSelected()) settings.saveDataToFileJSON(settings.getFilePathJSON());
-            if (settings.serializableToggleSelected()) settings.saveFileSerializable();
 
+            AllWords allWords = AppRun.getControllerTabAllWords();
             allWords.setCurrentCountWords();
             dialogStage.close();
         }
+        Settings settings = AppRun.getControllerTabSettings();
+        if (settings.xmlToggleSelected()) settings.saveDataToFileXML(settings.getFilePathXML());
+        if (settings.jsonToggleSelected()) settings.saveDataToFileJSON(settings.getFilePathJSON());
+        if (settings.serializableToggleSelected()) settings.saveFileSerializable();
     }
     private void setBorderTextFieldNull() {
         textFieldWord.setBorder(null);
