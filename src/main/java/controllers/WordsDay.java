@@ -5,8 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.*;
 
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polyline;
 import javafx.scene.text.Font;
@@ -15,7 +18,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Word;
 import run.AppRun;
+import utillity.voiceprovider.VoiceProvider;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,6 +59,8 @@ public class WordsDay {
     private Button viewTranslationButton;
     @FXML
     private Button newWordsButton;
+    @FXML
+    private Button voiceButton;
 
     @FXML
     private void initialize() {
@@ -121,6 +128,20 @@ public class WordsDay {
             wordsDayList.clear();
             refresh(AppRun.getControllerTabSettings());
         }
+    }
+    @FXML
+    public void voicePlay() {
+        File theDir = new File("voice");
+        if (!theDir.exists()) theDir.mkdir();
+        File fileMp3WordPronounce = new File("voice/"+word.getText()+".mp3");
+        if (!fileMp3WordPronounce.exists()) {
+            VoiceProvider.createFileMp3WordPronounce(word.getText());
+        }
+
+        String uriString = fileMp3WordPronounce.toURI().toString();
+        AudioClip player = new AudioClip(uriString);
+        player.play();
+
     }
     @FXML
     private void newWordsHandle() {

@@ -25,7 +25,7 @@
       </Button>
       <AnchorPane layoutX="18.0" layoutY="14.0" prefHeight="200.0" prefWidth="563.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1dfdf" height="237.0" layoutY="1.0" stroke="WHITE" strokeType="INSIDE" width="570.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1dfdf" height="264.0" layoutY="1.0" stroke="WHITE" strokeType="INSIDE" width="570.0" />
             <Line fx:id="line" endX="435.0" fill="RED" layoutX="134.0" layoutY="195.0" opacity="0.45" startX="-134.0" AnchorPane.leftAnchor="-0.5" AnchorPane.rightAnchor="0.5">
                <stroke>
                   <LinearGradient endX="1.0" endY="1.0">
@@ -73,7 +73,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="viewTranslationButton" layoutX="197.0" layoutY="179.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="180.0" text="View translation">
+            <Button fx:id="viewTranslationButton" layoutX="180.0" layoutY="179.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="180.0" text="View translation">
                <font>
                   <Font size="14.0" />
                </font>
@@ -124,6 +124,7 @@
                   </LinearGradient>
                </stroke>
             </Line>
+            <Button fx:id="voiceButton" layoutX="365.0" layoutY="179.0" mnemonicParsing="false" onAction="#voicePlay" prefHeight="33.0" prefWidth="34.0" styleClass="buttonvoice" />
          </children>
       </AnchorPane>
       <Label fx:id="nameBase" alignment="CENTER_RIGHT" layoutX="427.0" layoutY="6.0" opacity="0.5" prefHeight="17.0" prefWidth="151.0" text=". . ." />
