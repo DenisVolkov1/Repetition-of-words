@@ -81,9 +81,10 @@ public class WordsDay {
         if (b) {
             lastWords.setVisible(true);
             word.setVisible(true);
-            viewTranslationButton.setDisable(false);
-            nextButton.setDisable(false);
-            prefButton.setDisable(false);
+                viewTranslationButton.setDisable(false);
+                voiceButton.setDisable(false);
+                    nextButton.setDisable(false);
+                    prefButton.setDisable(false);
             refreshButton.setDisable(false);
             line.setVisible(true);
             newWordsButton.setText("New words");
@@ -91,9 +92,10 @@ public class WordsDay {
         } else {
             lastWords.setVisible(false);
             word.setVisible(false);
-            viewTranslationButton.setDisable(true);
-            nextButton.setDisable(true);
-            prefButton.setDisable(true);
+                viewTranslationButton.setDisable(true);
+                voiceButton.setDisable(true);
+                    nextButton.setDisable(true);
+                    prefButton.setDisable(true);
             refreshButton.setDisable(true);
             line.setVisible(false);
             polyline.setOpacity(0.14);
@@ -135,9 +137,13 @@ public class WordsDay {
         if (!theDir.exists()) theDir.mkdir();
         File fileMp3WordPronounce = new File("voice/"+word.getText()+".mp3");
         if (!fileMp3WordPronounce.exists()) {
-            VoiceProvider.createFileMp3WordPronounce(word.getText());
+            try {
+               if(VoiceProvider.createFileMp3WordPronounce(word.getText()) == -1) return;
+            } catch (IOException e) {
+               alertIOErr(e.getMessage());
+               return;
+            }
         }
-
         String uriString = fileMp3WordPronounce.toURI().toString();
         AudioClip player = new AudioClip(uriString);
         player.play();
@@ -217,6 +223,14 @@ public class WordsDay {
         alert.initOwner(AppRun.getMainStage());
         alert.setTitle("End");
         alert.setHeaderText("The end!!!");
+        alert.showAndWait();
+    }
+    private void alertIOErr(String messageExeption) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.getDialogPane().getStylesheets().add(css);
+        alert.initOwner(AppRun.getMainStage());
+        alert.setTitle("Input Output Err");
+        alert.setHeaderText("Error : "+messageExeption);
         alert.showAndWait();
     }
     public Label getNameBase() {

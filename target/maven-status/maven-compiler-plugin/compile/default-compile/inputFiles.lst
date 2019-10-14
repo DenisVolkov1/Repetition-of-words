@@ -1,10 +1,15 @@
 C:\java\EngLearn\src\main\java\utillity\Utillity.java
+C:\java\EngLearn\src\main\java\utillity\voiceprovider\AudioCodec.java
 C:\java\EngLearn\src\main\java\model\WordSerializable.java
+C:\java\EngLearn\src\main\java\utillity\voiceprovider\VoiceProvider.java
+C:\java\EngLearn\src\main\java\utillity\voiceprovider\AudioFormat.java
 C:\java\EngLearn\src\main\java\model\Word.java
 C:\java\EngLearn\src\main\java\controllers\EditDialog.java
 C:\java\EngLearn\src\main\java\utillity\LocalDateAdapter.java
 C:\java\EngLearn\src\main\java\utillity\DateUtil.java
 C:\java\EngLearn\src\main\java\model\WordListWrapper.java
+C:\java\EngLearn\src\main\java\utillity\voiceprovider\Languages.java
+C:\java\EngLearn\src\main\java\utillity\voiceprovider\VoiceParameters.java
 C:\java\EngLearn\src\main\java\run\AppRun.java
 C:\java\EngLearn\src\main\java\controllers\Settings.java
 C:\java\EngLearn\src\main\java\controllers\AllWords.java

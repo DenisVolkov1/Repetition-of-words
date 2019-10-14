@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AppRun extends Application {
-
     private static AnchorPane anchorPaneAllWords;
     private static AnchorPane anchorPaneWordsDay;
     private static AnchorPane anchorPaneSettings;
