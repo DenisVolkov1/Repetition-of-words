@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="600.0" stylesheets="@../css/theme.css" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controllers.Settings">
+   <children>
+      <Line endX="-188.5" endY="-85.33332824707031" layoutX="212.0" layoutY="290.0" opacity="0.27" startX="-188.5" startY="-107.0" />
+      <VBox layoutX="13.0" layoutY="14.0" prefHeight="84.0" prefWidth="525.0" spacing="5.0">
+         <children>
+            <HBox spacing="7.0">
+               <children>
+                  <Label text="New words for day:">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Spinner fx:id="countNewWords" onMouseClicked="#clickSpinnerNewWordsHandle" prefHeight="25.0" prefWidth="55.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Spinner>
+               </children>
+            </HBox>
+            <HBox spacing="8.0">
+               <children>
+                  <Label text="Words for day:">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="fieldCountDayWords" onKeyPressed="#pressedKeyInFieldWordsDayHandle" prefHeight="25.0" prefWidth="37.0" text="20" />
+               </children>
+            </HBox>
+            <CheckBox fx:id="saveListDayWordsExit" mnemonicParsing="false" onAction="#listOfDayHandle" text="Save list of day words on exit">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </CheckBox>
+         </children>
+      </VBox>
+      <Line endX="-188.5" endY="-85.33332824707031" layoutX="212.0" layoutY="228.0" opacity="0.27" startX="-188.5" startY="-107.0" />
+      <VBox layoutX="13.0" layoutY="114.0" prefHeight="119.0" prefWidth="176.0" spacing="40.0">
+         <children>
+            <RadioButton fx:id="radioBtnXML" mnemonicParsing="false" onAction="#xmlHandleToggle" selected="true" text="Dictionary as file &lt;XML&gt;.  ">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="toggleGroup" />
+               </toggleGroup>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
+            <RadioButton fx:id="radioBtnJSON" mnemonicParsing="false" onAction="#jsonHandleToggle" text="Dictionary as file JSON" toggleGroup="$toggleGroup">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
+            <RadioButton fx:id="radioBtnSerializ" mnemonicParsing="false" onAction="#serializHandleToggle" text="Dictionary as &quot;InnerBase&quot;." toggleGroup="$toggleGroup">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
+         </children>
+      </VBox>
+      <Label fx:id="nameFileXML" alignment="CENTER_RIGHT" layoutX="35.0" layoutY="134.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="19.0" prefWidth="160.0" text="empty...">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonLoadXMLFile" layoutX="213.0" layoutY="125.0" mnemonicParsing="false" onAction="#loadFileXMLFileChooser" prefHeight="33.0" prefWidth="75.0" text="Load file...">
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Line endX="-111.16667175292969" endY="-120.83332824707031" layoutX="144.0" layoutY="264.0" opacity="0.28" startX="-120.5" startY="-120.83332824707031" />
+      <Line endX="451.0" fill="RED" layoutX="149.0" layoutY="101.0" opacity="0.45" startX="-149.0" AnchorPane.leftAnchor="-0.5" AnchorPane.rightAnchor="-0.5">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#323232" />
+                  <Stop color="#ee5151" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Label fx:id="prompt" layoutX="145.0" layoutY="52.0" opacity="0.5" prefHeight="19.0" prefWidth="143.0" text="- Click Refresh to save..." visible="false">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="486.0" layoutY="324.0" mnemonicParsing="false" onAction="#clearAllSave" prefHeight="33.0" prefWidth="100.0" text="Reset settings" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="10.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Line fx:id="lineXML" endX="66.5" layoutX="136.0" layoutY="153.0" opacity="0.5" startX="-100.0" />
+      <Line fx:id="lineJSON" endX="66.5" layoutX="136.0" layoutY="215.0" opacity="0.5" startX="-100.0" />
+      <Line endX="-111.16667175292969" endY="-120.83332824707031" layoutX="144.0" layoutY="326.0" opacity="0.28" startX="-120.5" startY="-120.83332824707031" />
+      <Label fx:id="nameFileJSON" alignment="CENTER_RIGHT" layoutX="39.0" layoutY="195.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="19.0" prefWidth="160.0" text="empty...">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonLoadJSONFile" layoutX="213.0" layoutY="186.0" mnemonicParsing="false" onAction="#loadFileJSONFileChooser" prefHeight="33.0" prefWidth="75.0" text="Load file...">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</AnchorPane>
