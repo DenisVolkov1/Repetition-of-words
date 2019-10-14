@@ -5,5 +5,5 @@ Dictionary of foreign words for repetition every day.
  <br/>-JSON format
  <br/>-XML format 
  <br/>-internal object serialization
-- text-to speech option 
+- text to speech option 
 - native bundle executive: Repetition-of-words/target/jfx/native/bundles/EngLearn-1.0-SNAPSHOT/EngLearn-1.0-SNAPSHOT.exe
