@@ -6,4 +6,13 @@ Dictionary of foreign words for repetition every day.
  <br/>-XML format 
  <br/>-internal object serialization
 - text to speech option 
-- native bundle executive: Repetition-of-words/target/jfx/native/bundles/EngLearn-1.0-SNAPSHOT/EngLearn-1.0-SNAPSHOT.exe
+
+
+## How to assemble this proj in IntellijIdea?
+- File -> Project Structure... -> Artifacts add (+) 
+- Drag-and-drop all jar lib in ***output root***
+- Click on Java FX tab
+  - Application class : run.AppRun
+  - Application icon  : C:\Users\Denis\IdeaProjects\Repetition-of-words\src\main\resources\img\exeicon.ico
+  - Native bundle: all
+- Build -> Build Artifacts... -> Build
