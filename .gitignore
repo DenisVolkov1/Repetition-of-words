@@ -2,4 +2,5 @@
 *.iml
 *.txt
 voice/
-
+out/
+target/
