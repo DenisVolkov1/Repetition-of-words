@@ -41,6 +41,8 @@ public class Settings {
     @FXML
     private CheckBox saveListDayWordsExit;
     @FXML
+    private CheckBox saveAutoVoiceAtScrolling;
+    @FXML
     private Label prompt;
     @FXML
     private Button buttonLoadXMLFile;
@@ -152,7 +154,10 @@ public class Settings {
         if (saveListDayWordsExitSelected()) {
             saveListDayWordsExit.setSelected(true);
             loadListDayWords();
-
+        }
+        //set auto voice
+        if (autoVoiceAtScrollingSelected()) {
+            saveAutoVoiceAtScrolling.setSelected(true);
         }
         //set format words day
         fieldCountDayWords.setTextFormatter(getTextFormatter());
@@ -199,9 +204,13 @@ public class Settings {
         }
     }
     @FXML
-    private void listOfDayHandle() {
-        saveToggleListDayWordsExit();
+    private void listOfDayHandle() { saveToggleListDayWordsExit();
     }
+    @FXML
+    private void autoVoiceAtScrolling() {
+        saveToggleAutoVoice();
+    }
+
     @FXML
     private void xmlHandleToggle() {
         setXMLInterfaceActive(true);
@@ -286,11 +295,13 @@ public class Settings {
     public boolean serializableToggleSelected() {
         return prefs.getBoolean("Serializable", false);
     }
-    public boolean saveListDayWordsExitSelected() {
-        return prefs.getBoolean("SaveListDayWordsExit", false);
-    }
+    public boolean saveListDayWordsExitSelected() { return prefs.getBoolean("SaveListDayWordsExit", false); }
+    public boolean autoVoiceAtScrollingSelected() {return prefs.getBoolean("AutoVoiceScrolling", false); }
     private void saveToggleListDayWordsExit() {
         prefs.putBoolean("SaveListDayWordsExit", saveListDayWordsExit.isSelected());
+    }
+    private void saveToggleAutoVoice() {
+        prefs.putBoolean("AutoVoiceScrolling", saveAutoVoiceAtScrolling.isSelected());
     }
     private void saveToggle() {
         prefs.putBoolean("XMLToggle", radioBtnXML.isSelected());

@@ -115,6 +115,8 @@ public class WordsDay {
             lastWords.setText((countLastWords).toString());
             prefs.putInt("CountLastWords", countLastWords);
         }
+        boolean b = prefs.getBoolean("AutoVoiceScrolling", false);
+        if (b) voicePlay();
     }
     @FXML
     public void nextHandle() {
@@ -130,6 +132,8 @@ public class WordsDay {
             wordsDayList.clear();
             refresh(AppRun.getControllerTabSettings());
         }
+        boolean b = prefs.getBoolean("AutoVoiceScrolling", false);
+        if (b) voicePlay();
     }
     @FXML
     public void voicePlay() {

@@ -51,11 +51,9 @@ public class AppRun extends Application {
             }
             if (event.getCode() == KeyCode.RIGHT && tabWordsDayIsFocuse) {
                 wordsDay.nextHandle();
-                wordsDay.voicePlay();
             }
             if (event.getCode() == KeyCode.LEFT && tabWordsDayIsFocuse) {
                 wordsDay.prefHandle();
-                wordsDay.voicePlay();
             }
             event.consume();
         });
