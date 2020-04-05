@@ -20,6 +20,7 @@ import utillity.DateUtil;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class AllWords {
     private final String css = this.getClass().getResource("/css/theme.css").toExternalForm();
@@ -43,6 +44,13 @@ public class AllWords {
        wordColumn.setCellValueFactory(cellData -> cellData.getValue().wordProperty());
        translateColumn.setCellValueFactory(cellData -> cellData.getValue().translateProperty());
        tableAll.setItems(words);
+        dateCreationColumn.setComparator((o1, o2) -> {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            //convert String to LocalDate
+            LocalDate localDateO1 = LocalDate.parse(o1, formatter);
+            LocalDate localDateO2 = LocalDate.parse(o2, formatter);
+            return localDateO1.compareTo(localDateO2);
+        });
        setCurrentCountWords();
     }
     @FXML
