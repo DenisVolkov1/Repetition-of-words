@@ -22,6 +22,10 @@ import utillity.voiceprovider.VoiceProvider;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -128,8 +132,8 @@ public class WordsDay {
             //
             prefs.putInt("CountLastWords", countLastWords);
         } else {
+            playWhenEndList();
             alertIsEnd();
-            wordsDayList.clear();
             refresh(AppRun.getControllerTabSettings());
         }
         boolean b = prefs.getBoolean("AutoVoiceScrolling", false);
@@ -187,9 +191,16 @@ public class WordsDay {
     }
     public void refresh(Settings settings) {
         wordsDayList.clear();
+        List<Word> temperListAllWords = new ArrayList<>(AllWords.getWords());
+        temperListAllWords.sort((o1, o2) -> {
+            LocalDate localDateO1 = o1.getDateCreation();
+            LocalDate localDateO2 = o2.getDateCreation();
+            return localDateO1.compareTo(localDateO2);
+        });
+
         if (!settings.saveWordsForDay()) return;
 
-        Integer countAllWords = AllWords.getWords().size();
+        Integer countAllWords = temperListAllWords.size();
         Integer settingsCountDayWords = settings.countDayWords();
 
         if (countAllWords < settingsCountDayWords) {
@@ -197,23 +208,35 @@ public class WordsDay {
             initialCount = countLastWords;
             lastWords.setText(countLastWords.toString());
 
-            wordsDayList.addAll(AllWords.getWords());
+            wordsDayList.addAll(temperListAllWords);
             Collections.shuffle(wordsDayList);
         } else {
             countLastWords = settingsCountDayWords-1;
             initialCount = countLastWords;
 
             lastWords.setText(countLastWords.toString());
-            Integer fromIndex = AllWords.getWords().size() - settings.countDayWords();
-            Integer toIndex = AllWords.getWords().size();
-            List<Word> temper = AllWords.getWords().subList(fromIndex, toIndex);
+            Integer fromIndex = temperListAllWords.size() - settings.countDayWords();
+            Integer toIndex = temperListAllWords.size();
+            List<Word> temperListDayWords = temperListAllWords.subList(fromIndex, toIndex);
 
-            wordsDayList.addAll(temper);
+            wordsDayList.addAll(temperListDayWords);
             Collections.shuffle(wordsDayList);
         }
         viewWordForIndex(countLastWords);
         //progressBar bar
         setProgressInProgressBar();
+    }
+    private void playWhenEndList() {
+        URI uriResource = null;
+        try {
+            uriResource = this.getClass().getResource("/sound/endList.wav").toURI();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        File fileToSoundEnd;
+        String uriString = uriResource.toString();
+        AudioClip player = new AudioClip(uriString);
+        player.play();
     }
     public void setProgressInProgressBar() {
         Double progressStep = 1.0 / initialCount;
