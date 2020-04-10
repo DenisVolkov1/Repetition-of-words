@@ -135,6 +135,7 @@ public class WordsDay {
             playWhenEndList();
             alertIsEnd();
             refresh(AppRun.getControllerTabSettings());
+            return;
         }
         boolean b = prefs.getBoolean("AutoVoiceScrolling", false);
         if (b) voicePlay();
