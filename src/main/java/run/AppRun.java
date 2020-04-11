@@ -44,10 +44,7 @@ public class AppRun extends Application {
             WordsDay wordsDay = loaderTabWordsDay.getController();
 
             if (event.getCode() == KeyCode.SPACE) {
-                if ( wordsDay.getTranslation().getText().length() > 34) {
-                    wordsDay.getTranslation().setFont(Font.font("System", FontWeight.BOLD, 13));
-                }
-                wordsDay.getTranslation().setVisible(true);
+               wordsDay.pressedTranslationButton();
             }
             if (event.getCode() == KeyCode.RIGHT && tabWordsDayIsFocuse) {
                 wordsDay.nextHandle();
@@ -58,13 +55,9 @@ public class AppRun extends Application {
             event.consume();
         });
         tabPaneMain.getTabs().get(1).getContent().addEventFilter(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
-
+            WordsDay wordsDay = loaderTabWordsDay.getController();
             if (event.getCode() == KeyCode.SPACE) {
-                WordsDay wordsDay = loaderTabWordsDay.getController();
-                if ( wordsDay.getTranslation().getText().length() > 34) {
-                    wordsDay.getTranslation().setFont(Font.font("System", FontWeight.BOLD, 15));
-                }
-                wordsDay.getTranslation().setVisible(false);
+                wordsDay.releasedTranslationButton();
             }
             event.consume();
         });

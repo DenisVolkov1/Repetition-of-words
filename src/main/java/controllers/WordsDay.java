@@ -71,14 +71,11 @@ public class WordsDay {
         progressBar.setStyle("-fx-accent: #99ff33;");
         translation.setVisible(false);
         viewTranslationButton.setOnMousePressed(n -> {
-            if (translation.getText().length() > 34) {
-                translation.setFont(Font.font("System", FontWeight.BOLD, 13));
-            }
-            translation.setVisible(true);
+            pressedTranslationButton();
         });
+
         viewTranslationButton.setOnMouseReleased(n -> {
-            translation.setFont(Font.font("System", FontWeight.BOLD, 15));
-            translation.setVisible(false);
+            releasedTranslationButton();
         });
     }
     public void isButtonsEnabled(Boolean b) {
@@ -239,6 +236,17 @@ public class WordsDay {
         AudioClip player = new AudioClip(uriString);
         player.play();
     }
+    public void pressedTranslationButton() {
+        if (translation.getText().length() > 32) {
+            translation.setFont(Font.font("System", FontWeight.BOLD, 13));
+        }
+        translation.setVisible(true);
+    }
+    public void releasedTranslationButton() {
+        translation.setFont(Font.font("System", FontWeight.BOLD, 15));
+        translation.setVisible(false);
+    }
+
     public void setProgressInProgressBar() {
         Double progressStep = 1.0 / initialCount;
         Integer multplCount = initialCount - countLastWords;
